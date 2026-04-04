@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THE ARCHIVES — Revansh 2025/26</title>
+  <meta name="description" content="THE ARCHIVES — Revansh 2025/26. A personal archive of moments, music, and work that keep us moving.">
+  <meta property="og:title" content="THE ARCHIVES — Revansh 2025/26">
+  <meta property="og:description" content="THE ARCHIVES — Revansh 2025/26. A personal archive of moments, music, and work that keep us moving.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+  <!-- Load mask -->
+  <div class="load-mask js-load-mask"></div>
+
+  <!-- Giant Logo (fixed, mix-blend-difference) -->
+  <div class="logo-wrap js-logo">
+    <div class="logo-inner js-logo-inner">
+      <!-- State 1: Full "Revansh / THE ARCHIVES / 2025/26" -->
+      <div class="logo-state logo-state--1 js-logo-s1">
+        <div class="logo-line logo-line--1">
+          <div class="logo-word">
+            <span class="logo-char js-char">R</span><span class="logo-char logo-char--slide js-char-s1">e</span><span class="logo-char logo-char--slide js-char-s1">v</span><span class="logo-char logo-char--slide js-char-s1">a</span><span class="logo-char logo-char--slide js-char-s1">n</span><span class="logo-char logo-char--slide js-char-s1">s</span><span class="logo-char logo-char--slide js-char-s1">h</span>
+          </div>
+        </div>
+        <div class="logo-line logo-line--2">
+          <div class="logo-word">
+            <span class="logo-char logo-char--slide js-char-s1">T</span><span class="logo-char logo-char--slide js-char-s1">H</span><span class="logo-char logo-char--slide js-char-s1">E</span>
+          </div>
+          <div class="logo-word">
+            <span class="logo-char logo-char--slide js-char-s1">A</span><span class="logo-char logo-char--slide js-char-s1">R</span><span class="logo-char logo-char--slide js-char-s1">C</span><span class="logo-char logo-char--slide js-char-s1">H</span><span class="logo-char logo-char--slide js-char-s1">I</span><span class="logo-char logo-char--slide js-char-s1">V</span><span class="logo-char logo-char--slide js-char-s1">E</span><span class="logo-char logo-char--slide js-char-s1">S</span>
+          </div>
+        </div>
+        <div class="logo-line logo-line--3">
+          <div class="logo-word">
+            <span class="logo-char logo-char--slide js-char-s1">2</span><span class="logo-char logo-char--slide js-char-s1">0</span><span class="logo-char logo-char--slide js-char-s1">2</span><span class="logo-char logo-char--slide js-char-s1">5</span><span class="logo-char js-char">/</span><span class="logo-char logo-char--slide js-char-s1">2</span><span class="logo-char logo-char--slide js-char-s1">6</span>
+          </div>
+        </div>
+      </div>
+      <!-- State 2: Compact "TA / R26" -->
+      <div class="logo-state logo-state--2 js-logo-s2">
+        <div class="logo-line logo-line--compact">
+          <div class="logo-word">
+            <span class="logo-char logo-char--s2 js-char-s2">T</span><span class="logo-char logo-char--s2 js-char-s2">A</span>
+          </div>
+        </div>
+        <div class="logo-line logo-line--compact">
+          <div class="logo-word">
+            <span class="logo-char logo-char--s2 js-char-s2">R</span><span class="logo-char logo-char--s2 js-char-s2">2</span><span class="logo-char logo-char--s2 js-char-s2">6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav bar (fixed top) -->
+  <nav class="nav js-nav">
+    <div class="nav__inner">
+      <div class="nav__left">
+        <span class="nav__label">Revansh Singh</span>
+      </div>
+      <div class="nav__center">
+        <span class="nav__title">The Archives / 2025–26</span>
+      </div>
+      <div class="nav__right">
+        <!-- Music Player Dropdown -->
+        <div class="music-player js-music-player" id="music-player">
+          <button class="music-player__btn js-music-toggle" id="music-toggle-btn" aria-label="Music player" aria-expanded="false">
+            <span class="music-player__icon js-music-icon">
+              <!-- Play icon -->
+              <svg class="icon-play js-icon-play" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="3,1 13,7 3,13"/>
+              </svg>
+              <!-- Pause icon (hidden by default) -->
+              <svg class="icon-pause js-icon-pause" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+                <rect x="2" y="1" width="3.5" height="12"/>
+                <rect x="8.5" y="1" width="3.5" height="12"/>
+              </svg>
+              <!-- Equalizer (visible when playing) -->
+              <span class="music-player__eq">
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+              </span>
+            </span>
+            <span class="music-player__now-playing js-now-playing">Music</span>
+            <span class="music-player__chevron js-chevron">
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+
+          <!-- Dropdown panel -->
+          <div class="music-player__dropdown js-music-dropdown" id="music-dropdown" aria-hidden="true">
+            <div class="music-player__track-list" id="track-list">
+              <!-- Tracks injected by JS -->
+            </div>
+            <!-- Waveform / progress -->
+            <div class="music-player__progress-wrap">
+              <div class="music-player__progress-bar" id="audio-progress-bar">
+                <div class="music-player__progress-fill js-progress-fill" id="progress-fill"></div>
+              </div>
+              <div class="music-player__time-row">
+                <span class="js-current-time music-player__time">0:00</span>
+                <span class="js-duration music-player__time">0:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hidden audio element -->
+  <audio id="site-audio" preload="metadata"></audio>
+
+  <!-- Fixed carousel layer -->
+  <div class="carousel-layer js-carousel-layer">
+    <div class="carousel js-carousel" id="main-carousel">
+      <div class="carousel__track js-track" id="carousel-track">
+
+        <!-- Cards will be injected by JS -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scrollable body spacer (controls how much you can scroll) -->
+  <div class="scroll-driver js-scroll-driver"></div>
+
+  <!-- Bottom info bar -->
+  <div class="info-bar js-info-bar">
+    <div class="info-bar__left">
+      <span class="info-bar__label js-issue-label">The Archives</span>
+    </div>
+    <div class="info-bar__center">
+      <span class="info-bar__counter js-counter"><span class="js-current-num">01</span> / <span class="js-total-num">60</span></span>
+    </div>
+    <div class="info-bar__right">
+      <span class="info-bar__label js-date-label">Revansh 2025/26</span>
+    </div>
+  </div>
+
+  <!-- About overlay -->
+  <div class="about-overlay js-about" id="about-overlay">
+    <div class="about__inner">
+      <div class="about__header">
+        <button class="about__close js-about-close" id="about-close" aria-label="Close">
+          <span class="x-icon"></span>
+        </button>
+      </div>
+      <div class="about__content">
+        <p class="about__tagline">The Archives — a personal archive of moments, music, and work that define 2025/26.</p>
+        <p>Revansh Singh</p>
+        <div class="about__links">
+          <a href="#" class="about__link">The Archives</a>
+          <a href="#" class="about__link">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-trail"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
