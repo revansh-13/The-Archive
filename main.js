@@ -16,11 +16,11 @@ const ARTICLES = [
     category: 'Motion',
     month: 'MARCH',
     images: [
-      { src: 'BERSERK.png', aspect: 0.707, size: 'small', bg: '#101010', w: 2480, h: 3508 },
-      { src: 'vagabond 1.png', aspect: 0.707, size: 'small', bg: '#151515', w: 2480, h: 3508 },
-      { src: 'gojo.png', aspect: 0.743, size: 'small', bg: '#222', w: 1240, h: 1670 },
-      { src: 'zoro.png', aspect: 0.743, size: 'small', bg: '#0d1a0d', w: 1240, h: 1670 },
-      { src: 'joatao.png', aspect: 0.741, size: 'small', bg: '#1a0d1a', w: 1240, h: 1674 },
+      { src: 'BERSERK.png', aspect: 0.707, size: 'small', bg: '#101010', w: 2480, h: 3508, desc: 'A haunting glimpse into the eclipse. The struggling soul continues to fight against causality, standing tall against overwhelming darkness.' },
+      { src: 'vagabond 1.png', aspect: 0.707, size: 'small', bg: '#151515', w: 2480, h: 3508, desc: 'The path of the sword is a lonely one. A visual study of the wanderer seeking enlightenment through conflict and survival.' },
+      { src: 'gojo.png', aspect: 0.743, size: 'small', bg: '#222', w: 1240, h: 1670, desc: 'The strongest sorcerer showing unparalleled confidence. A snapshot of absolute power masking an underlying weight of responsibility.' },
+      { src: 'zoro.png', aspect: 0.743, size: 'small', bg: '#0d1a0d', w: 1240, h: 1670, desc: 'A vow to the heavens. The pursuit of the ultimate swordsman title requires shedding blood, ignoring pain, and unwavering loyalty.' },
+      { src: 'joatao.png', aspect: 0.741, size: 'small', bg: '#1a0d1a', w: 1240, h: 1674, desc: 'Stoic strength. A tribute to the timeless lineage and an inherited legacy that refuses to back down in the face of destiny.' },
     ]
   },
   {
@@ -29,14 +29,14 @@ const ARTICLES = [
     category: 'Vibe',
     month: 'FEBRUARY',
     images: [
-      { src: 'RAFTAAR.png', aspect: 0.741, size: 'small', bg: '#050505', w: 1240, h: 1674 },
-      { src: 'RAWAL.png', aspect: 1.0, size: 'small', bg: '#0a0a0a', w: 2000, h: 2000 },
-      { src: 'EMEINEM.png', aspect: 0.741, size: 'small', bg: '#030303', w: 1240, h: 1674 },
-      { src: 'SOLITUDE IN FLOWERS.png', aspect: 0.707, size: 'medium', bg: '#1a1a05', w: 2480, h: 3508 },
-      { src: 'EMEINENEC 1.png', aspect: 0.563, size: 'medium', bg: '#030303', w: 1080, h: 1920 },
-      { src: 'spidey.png', aspect: 0.707, size: 'small', bg: '#200505', w: 2480, h: 3508 },
-      { src: 'MAFIA.png', aspect: 0.8, size: 'medium', bg: '#100505', w: 1080, h: 1350 },
-      { src: 'BADDIE NATION.png', aspect: 0.707, size: 'medium', bg: '#050a1a', w: 2480, h: 3508 },
+      { src: 'RAFTAAR.png', aspect: 0.741, size: 'small', bg: '#050505', w: 1240, h: 1674, desc: 'Pioneer of the beat. Capturing the raw energy, rhythm, and poetry that defined a generation in the underground scene.' },
+      { src: 'RAWAL.png', aspect: 1.0, size: 'small', bg: '#0a0a0a', w: 2000, h: 2000, desc: 'An unfiltered narrative of the streets. Rawal brings unmatched authenticity to modern hip-hop culture.' },
+      { src: 'EMEINEM.png', aspect: 0.741, size: 'small', bg: '#030303', w: 1240, h: 1674, desc: 'The rap god immortalized in a moment of lyrical intensity. A testament to technical genius and controversy.' },
+      { src: 'SOLITUDE IN FLOWERS.png', aspect: 0.707, size: 'medium', bg: '#1a1a05', w: 2480, h: 3508, desc: 'Finding peace amidst the concrete jungle. A juxtaposition of natural beauty and the chaotic urban environment.' },
+      { src: 'EMEINENEC 1.png', aspect: 0.563, size: 'medium', bg: '#030303', w: 1080, h: 1920, desc: 'A chaotic reflection. Echoes of alter-egos fighting for dominance inside the mind of the artist.' },
+      { src: 'spidey.png', aspect: 0.707, size: 'small', bg: '#200505', w: 2480, h: 3508, desc: 'Swinging through the neon-lit cityscape. The visual energy of masked heroics blending into pop-culture mythos.' },
+      { src: 'MAFIA.png', aspect: 0.8, size: 'medium', bg: '#100505', w: 1080, h: 1350, desc: 'Organized aesthetics. A shadowy homage to cinematic mobster tropes and underground brotherhood.' },
+      { src: 'BADDIE NATION.png', aspect: 0.707, size: 'medium', bg: '#050a1a', w: 2480, h: 3508, desc: 'Fierce and unapologetic style. A vibrant visual celebration of modern streetwear and attitude.' },
     ]
   },
   {
@@ -45,15 +45,15 @@ const ARTICLES = [
     category: 'Graph',
     month: 'JANUARY',
     images: [
-      { src: 'WAVE DESIGN.png', aspect: 0.707, size: 'medium', bg: '#000', w: 2480, h: 3508 },
-      { src: 'HALFTONE.png', aspect: 0.707, size: 'medium', bg: '#151515', w: 2480, h: 3508 },
-      { src: 'lfm.png', aspect: 0.8, size: 'small', bg: '#111', w: 736, h: 920 },
-      { src: 'Instagram post - 6.png', aspect: 1.0, size: 'medium', bg: '#111', w: 1080, h: 1080 },
-      { src: 'BRUTALSIM 1.png', aspect: 0.741, size: 'medium', bg: '#111', w: 1240, h: 1674 },
-      { src: 'CHAI.png', aspect: 0.707, size: 'small', bg: '#1a1005', w: 2480, h: 3508 },
-      { src: 'Snapinsta.app_457794779_1230657101276501_210081780780496647_n_1080.png', aspect: 0.8, size: 'medium', bg: '#111', w: 1040, h: 1300 },
-      { src: 'EXTRA ORDINARY.png', aspect: 0.707, size: 'medium', bg: '#05051a', w: 2480, h: 3508 },
-      { src: 'FLOAT WINDOW.png', aspect: 0.707, size: 'small', bg: '#051a05', w: 2480, h: 3508 },
+      { src: 'WAVE DESIGN.png', aspect: 0.707, size: 'medium', bg: '#000', w: 2480, h: 3508, desc: 'Distorting reality through algorithmic waves. An exploration of minimal interference in a pure canvas.' },
+      { src: 'HALFTONE.png', aspect: 0.707, size: 'medium', bg: '#151515', w: 2480, h: 3508, desc: 'Vintage printing techniques applied to modern vectors. Bridging the gap between retro mechanical art and digital perfection.' },
+      { src: 'lfm.png', aspect: 0.8, size: 'small', bg: '#111', w: 736, h: 920, desc: 'A cryptic logo form derived from rigid grids. A study in reduction, form, and brutalist minimalism.' },
+      { src: 'Instagram post - 6.png', aspect: 1.0, size: 'medium', bg: '#111', w: 1080, h: 1080, desc: 'Social media architecture. Designing for the endless scroll while demanding a momentary pause from the viewer.' },
+      { src: 'BRUTALSIM 1.png', aspect: 0.741, size: 'medium', bg: '#111', w: 1240, h: 1674, desc: 'Unpolished and raw. A graphic design poster that aggressively breaks layout conventions for emotional impact.' },
+      { src: 'CHAI.png', aspect: 0.707, size: 'small', bg: '#1a1005', w: 2480, h: 3508, desc: 'A warm palette dedicated to everyday rituals. Elevating a simple cup of tea into a monumental architectural form.' },
+      { src: 'Snapinsta.app_457794779_1230657101276501_210081780780496647_n_1080.png', aspect: 0.8, size: 'medium', bg: '#111', w: 1040, h: 1300, desc: 'A found composition. Rescuing an algorithmic artifact from social media impermanence.' },
+      { src: 'EXTRA ORDINARY.png', aspect: 0.707, size: 'medium', bg: '#05051a', w: 2480, h: 3508, desc: 'Magnifying the mundane. Rendering ordinary objects with hyper-intense colors to alter their perceived significance.' },
+      { src: 'FLOAT WINDOW.png', aspect: 0.707, size: 'small', bg: '#051a05', w: 2480, h: 3508, desc: 'An OS-inspired graphic interface. Investigating our relationship with digital borders and floating contextual windows.' },
     ]
   },
   {
@@ -62,9 +62,9 @@ const ARTICLES = [
     category: 'Media',
     month: 'MARCH',
     images: [
-      { src: 'red dead.png', aspect: 0.707, size: 'medium', bg: '#1a0505', w: 2480, h: 3508 },
-      { src: 'sprite.png', aspect: 0.741, size: 'medium', bg: '#111', w: 1240, h: 1674 },
-      { src: 'tbsm.png', aspect: 0.741, size: 'small', bg: '#0a1a05', w: 1240, h: 1674 },
+      { src: 'red dead.png', aspect: 0.707, size: 'medium', bg: '#1a0505', w: 2480, h: 3508, desc: 'The fading frontier. A vivid reimagining of the outlaw sunset where civilization pushes out the final remnants of the wild.' },
+      { src: 'sprite.png', aspect: 0.741, size: 'medium', bg: '#111', w: 1240, h: 1674, desc: 'Effervescent nostalgia. Commercial aesthetics twisted into a glowing, synthetic study of consumerism.' },
+      { src: 'tbsm.png', aspect: 0.741, size: 'small', bg: '#0a1a05', w: 1240, h: 1674, desc: 'Underground motifs crossing into mainstream awareness. A visual commentary on cultural assimilation.' },
     ]
   },
   {
@@ -73,11 +73,11 @@ const ARTICLES = [
     category: 'Life',
     month: 'DECEMBER',
     images: [
-      { src: 'session post.png', aspect: 0.8, size: 'medium', bg: '#050505', w: 1080, h: 1350 },
-      { src: 'story.png', aspect: 0.563, size: 'small', bg: '#000', w: 1080, h: 1920 },
-      { src: 'vaazha.png', aspect: 1.0, size: 'medium', bg: '#0a100a', w: 2000, h: 2000 },
-      { src: 'e3555bba6c3f4587105a9650b50f6438.jpg', aspect: 1.0, size: 'small', bg: '#050505', w: 720, h: 720 },
-      { src: 'fc9ebdaf9569ef2632697f3f0bbe8578.jpg', aspect: 0.561, size: 'medium', bg: '#050505', w: 268, h: 478 },
+      { src: 'session post.png', aspect: 0.8, size: 'medium', bg: '#050505', w: 1080, h: 1350, desc: 'Late night sessions in the studio. Creating soundwaves and riding the creative flow until dawn breaks.' },
+      { src: 'story.png', aspect: 0.563, size: 'small', bg: '#000', w: 1080, h: 1920, desc: 'A fleeting vertical fragment of a day. The ephemeral nature of memory captured before it disappears.' },
+      { src: 'vaazha.png', aspect: 1.0, size: 'medium', bg: '#0a100a', w: 2000, h: 2000, desc: 'An abstract slice of tropical greenery. A heavy focus on texture, shadow, and organic architecture.' },
+      { src: 'e3555bba6c3f4587105a9650b50f6438.jpg', aspect: 1.0, size: 'small', bg: '#050505', w: 720, h: 720, desc: 'A candid fragment out of context. A study of framing and mysterious narratives hiding in plain sight.' },
+      { src: 'fc9ebdaf9569ef2632697f3f0bbe8578.jpg', aspect: 0.561, size: 'medium', bg: '#050505', w: 268, h: 478, desc: 'Timeless magnetism. An iconic image of SRK capturing his unmistakable screen presence and cultural impact.' },
     ]
   },
   {
@@ -86,12 +86,12 @@ const ARTICLES = [
     category: 'Study',
     month: 'YEARLY',
     images: [
-      { src: '26b683814cfd7f67386ca75b391265ab.jpg', aspect: 0.563, size: 'small', bg: '#050505', w: 736, h: 1308 },
-      { src: '2c20fa10df09cfaff66c4d71a613224a.jpg', aspect: 0.8, size: 'medium', bg: '#050505', w: 1200, h: 1500 },
-      { src: '360f98c334c209046bc1f6e2ac3db099.jpg', aspect: 0.563, size: 'small', bg: '#050505', w: 736, h: 1308 },
-      { src: '391407e95d110612a5d40fb383b13051.jpg', aspect: 0.563, size: 'medium', bg: '#050505', w: 736, h: 1308 },
-      { src: '717e15a9e6e0541c1faaca2f5aedb677.jpg', aspect: 0.562, size: 'small', bg: '#050505', w: 639, h: 1137 },
-      { src: '7c6c1eca6ac33e21e91cf7c1d696cbdc.jpg', aspect: 0.828, size: 'medium', bg: '#050505', w: 735, h: 888 },
+      { src: '26b683814cfd7f67386ca75b391265ab.jpg', aspect: 0.563, size: 'small', bg: '#050505', w: 736, h: 1308, desc: 'The official cover art for "Lunch Break" by Seedhe Maut. A defining visual statement capturing the raw, chaotic energy of the album.' },
+      { src: '2c20fa10df09cfaff66c4d71a613224a.jpg', aspect: 0.8, size: 'medium', bg: '#050505', w: 1200, h: 1500, desc: 'A still from the coming-of-age classic "Wake Up Sid," reflecting perfectly on moments of transition and self-discovery.' },
+      { src: '360f98c334c209046bc1f6e2ac3db099.jpg', aspect: 0.563, size: 'small', bg: '#050505', w: 736, h: 1308, desc: 'Archived File #03: Portrait layout experiments. Analyzing eye-tracking and typography displacement.' },
+      { src: '391407e95d110612a5d40fb383b13051.jpg', aspect: 0.563, size: 'medium', bg: '#050505', w: 736, h: 1308, desc: 'A vibrant frame from "Yeh Jawaani Hai Deewani." Catching the wanderlust and fleeting, golden memories of youth in a single shot.' },
+      { src: '717e15a9e6e0541c1faaca2f5aedb677.jpg', aspect: 0.562, size: 'small', bg: '#050505', w: 639, h: 1137, desc: 'Archived File #05: A moment frozen in high contrast. Light leaks acting as intentional graphic elements.' },
+      { src: '7c6c1eca6ac33e21e91cf7c1d696cbdc.jpg', aspect: 0.828, size: 'medium', bg: '#050505', w: 735, h: 888, desc: 'A distinctively kinetic frame from "Dev.D," visually translating the film\'s modern, visceral take on heartbreak and descent.' },
     ]
   },
 ];
@@ -467,10 +467,54 @@ function updateLogoState() {
 // CARD CLICK
 // ============================================
 function initCardClicks() {
+  const memoryOverlay = document.getElementById('memory-overlay');
+  const memoryClose = document.getElementById('memory-close');
+  const memoryImage = document.querySelector('.js-memory-image');
+  const memoryTitle = document.querySelector('.js-memory-title');
+  const memoryMeta = document.querySelector('.js-memory-meta');
+  const memoryDesc = document.querySelector('.js-memory-desc');
+
   track.addEventListener('click', e => {
     const card = e.target.closest('.card');
     if (!card || isDragging) return;
+
+    // Get slide data
+    const indexStr = card.dataset.index;
+    if (!indexStr) return;
+    const originalIndex = parseInt(indexStr, 10);
+    const slide = ORIGINAL_SLIDES[originalIndex];
+    if (!slide) return;
+
+    // Populate overlay
+    memoryImage.src = slide.src;
+    memoryImage.alt = slide.title;
+    memoryImage.style.backgroundColor = slide.bg;
+    
+    memoryTitle.textContent = slide.title;
+    memoryMeta.textContent = `${slide.category} (${slide.month})`;
+    memoryDesc.textContent = slide.desc || 'A fragment of memory preserved in the archives.';
+
+    // Show overlay
+    memoryOverlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; 
   });
+
+  if (memoryClose) {
+    memoryClose.addEventListener('click', () => {
+      memoryOverlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
+  }
+
+  if (memoryOverlay) {
+    memoryOverlay.addEventListener('click', (e) => {
+      // Close only if clicking the overlay background (not inner content)
+      if (e.target === memoryOverlay) {
+        memoryOverlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
 }
 
 // ============================================
