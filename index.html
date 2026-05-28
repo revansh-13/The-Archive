@@ -62,7 +62,11 @@
   <nav class="nav js-nav">
     <div class="nav__inner">
       <div class="nav__left">
-        <span class="nav__label">Revansh Singh</span>
+        <div class="nav-view-toggle">
+          <button class="nav__btn nav-view-btn is-active js-view-btn" data-view="timeline">Timeline</button>
+          <span class="nav__sep">, </span>
+          <button class="nav__btn nav-view-btn js-view-btn" data-view="mgr">Sphere</button>
+        </div>
       </div>
       <div class="nav__center">
         <span class="nav__title">The Archives / 2025–26</span>
@@ -130,6 +134,14 @@
       </div>
     </div>
   </div>
+
+  <!-- 3D Merry Go Round layer -->
+  <div class="mgr-layer js-mgr-layer hidden">
+    <div class="mgr-scene js-mgr-scene">
+      <!-- 3D Cards will be injected by JS -->
+    </div>
+  </div>
+
 
   <!-- Scrollable body spacer (controls how much you can scroll) -->
   <div class="scroll-driver js-scroll-driver"></div>

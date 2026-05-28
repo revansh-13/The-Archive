@@ -275,6 +275,7 @@ function playTick() {
 }
 
 function onScroll() {
+  if (currentView !== 'timeline') return;
   const scrollY = window.scrollY;
   targetX = scrollY;
   
@@ -344,7 +345,25 @@ function animate() {
   // Infinite Visual Wrapping
   // Map the trackX to a single cycle width
   const renderX = ((trackX % originalWidth) + originalWidth) % originalWidth;
-  track.style.transform = `translateX(${-renderX}px)`;
+  if(track) track.style.transform = `translateX(${-renderX}px)`;
+
+  // MGR Animation
+  if (currentView === 'mgr') {
+    if (!isDraggingMGR) {
+      mgrTargetRotY += mgrVelocityY;
+      mgrTargetRotX += mgrVelocityX;
+      mgrVelocityY *= 0.96;
+      mgrVelocityX *= 0.96;
+      mgrTargetRotX = Math.max(-25, Math.min(25, mgrTargetRotX));
+    }
+
+    mgrRotY += (mgrTargetRotY - mgrRotY) * 0.1;
+    mgrRotX += (mgrTargetRotX - mgrRotX) * 0.1;
+
+    if (mgrScene) {
+      mgrScene.style.transform = `rotateX(${mgrRotX}deg) rotateY(${mgrRotY}deg)`;
+    }
+  }
 
   // Update cursor position in loop for trail smoothness
   updateCursor();
@@ -474,11 +493,21 @@ function initCardClicks() {
   const memoryMeta = document.querySelector('.js-memory-meta');
   const memoryDesc = document.querySelector('.js-memory-desc');
 
-  track.addEventListener('click', e => {
+  // Single click for Timeline view cards
+  document.addEventListener('click', e => {
     const card = e.target.closest('.card');
     if (!card || isDragging) return;
+    openMemoryFragment(card);
+  });
 
-    // Get slide data
+  // Double click for MGR sphere cards
+  document.addEventListener('dblclick', e => {
+    const card = e.target.closest('.mgr-card');
+    if (!card || isDraggingMGR) return;
+    openMemoryFragment(card);
+  });
+
+  function openMemoryFragment(card) {
     const indexStr = card.dataset.index;
     if (!indexStr) return;
     const originalIndex = parseInt(indexStr, 10);
@@ -497,7 +526,7 @@ function initCardClicks() {
     // Show overlay
     memoryOverlay.classList.add('is-open');
     document.body.style.overflow = 'hidden'; 
-  });
+  }
 
   if (memoryClose) {
     memoryClose.addEventListener('click', () => {
@@ -754,6 +783,143 @@ function initCursorHover() {
 }
 
 // ============================================
+// MERRY GO ROUND (3D SPHERE)
+// ============================================
+let currentView = 'timeline'; // 'timeline' or 'mgr'
+let mgrRotY = 0;
+let mgrRotX = 0;
+let mgrTargetRotY = 0;
+let mgrTargetRotX = 0;
+let isDraggingMGR = false;
+let mgrLastX = 0;
+let mgrLastY = 0;
+let mgrVelocityY = 0;
+let mgrVelocityX = 0;
+
+const mgrLayer = document.querySelector('.js-mgr-layer');
+const mgrScene = document.querySelector('.js-mgr-scene');
+const carouselLayer = document.querySelector('.js-carousel-layer');
+
+function buildMGR() {
+  if (!mgrScene) return;
+  const total = ORIGINAL_SLIDES.length;
+  const rows = 3;
+  const cardsPerRow = Math.ceil(total / rows);
+  
+  const angleStep = 360 / cardsPerRow;
+  const radius = Math.max(900, (300 / 2) / Math.tan((Math.PI) / cardsPerRow));
+
+  ORIGINAL_SLIDES.forEach((slide, i) => {
+    const rowIdx = Math.floor(i / cardsPerRow);
+    const colIdx = i % cardsPerRow;
+
+    const angleY = colIdx * angleStep;
+    let translateY = 0;
+    let rotateX = 0;
+    if (rowIdx === 0) { translateY = -420; rotateX = -10; }
+    if (rowIdx === 1) { translateY = 0; rotateX = 0; }
+    if (rowIdx === 2) { translateY = 420; rotateX = 10; }
+
+    const card = document.createElement('div');
+    card.className = 'mgr-card js-mgr-card';
+    card.dataset.index = i;
+    card.dataset.url = slide.url;
+
+    const baseHeight = 300;
+    const aspect = slide.aspect || 1;
+    const w = baseHeight * aspect;
+    const h = baseHeight;
+
+    card.style.width = `${w}px`;
+    card.style.height = `${h}px`;
+    card.style.marginLeft = `-${w / 2}px`;
+    card.style.marginTop = `-${h / 2}px`;
+
+    card.innerHTML = `
+      <img src="${slide.src}" alt="${slide.title}" loading="lazy" width="${slide.w}" height="${slide.h}">
+      <div class="mgr-label">${slide.title}</div>
+    `;
+
+    card.style.transform = `translateY(${translateY}px) rotateY(${angleY}deg) translateZ(${radius}px) rotateX(${rotateX}deg)`;
+    mgrScene.appendChild(card);
+  });
+}
+
+function initMGRControls() {
+  if(!mgrLayer) return;
+  mgrLayer.addEventListener('mousedown', onMGRDragStart);
+  mgrLayer.addEventListener('touchstart', onMGRDragStart, { passive: true });
+
+  window.addEventListener('mousemove', onMGRDragMove);
+  window.addEventListener('touchmove', onMGRDragMove, { passive: false });
+
+  window.addEventListener('mouseup', onMGRDragEnd);
+  window.addEventListener('touchend', onMGRDragEnd);
+
+  const btns = document.querySelectorAll('.js-view-btn');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      switchView(btn.dataset.view);
+    });
+  });
+}
+
+function switchView(view) {
+  if (currentView === view) return;
+  currentView = view;
+
+  document.querySelectorAll('.js-view-btn').forEach(btn => {
+    btn.classList.toggle('is-active', btn.dataset.view === view);
+  });
+
+  if (view === 'timeline') {
+    carouselLayer.classList.remove('hidden');
+    mgrLayer.classList.add('hidden');
+    document.body.style.overflow = '';
+  } else {
+    carouselLayer.classList.add('hidden');
+    mgrLayer.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function onMGRDragStart(e) {
+  if (currentView !== 'mgr') return;
+  isDraggingMGR = true;
+  mgrLastX = e.touches ? e.touches[0].clientX : e.clientX;
+  mgrLastY = e.touches ? e.touches[0].clientY : e.clientY;
+  mgrVelocityY = 0;
+  mgrVelocityX = 0;
+}
+
+function onMGRDragMove(e) {
+  if (!isDraggingMGR || currentView !== 'mgr') return;
+  if (e.cancelable) e.preventDefault();
+
+  const currentX = e.touches ? e.touches[0].clientX : e.clientX;
+  const currentY = e.touches ? e.touches[0].clientY : e.clientY;
+
+  const dx = currentX - mgrLastX;
+  const dy = currentY - mgrLastY;
+
+  mgrVelocityY = dx * 0.2; 
+  mgrVelocityX = dy * -0.2; 
+
+  mgrTargetRotY += mgrVelocityY;
+  mgrTargetRotX += mgrVelocityX;
+
+  mgrTargetRotX = Math.max(-25, Math.min(25, mgrTargetRotX));
+
+  mgrLastX = currentX;
+  mgrLastY = currentY;
+}
+
+function onMGRDragEnd() {
+  if (!isDraggingMGR) return;
+  isDraggingMGR = false;
+}
+
+// ============================================
 // RESIZE
 // ============================================
 function onResize() {
@@ -789,6 +955,8 @@ function init() {
     initMusicPlayer();
     initCardClicks();
     initCursorHover();
+    buildMGR();
+    initMGRControls();
 
     // Progress bar element
     const pb = document.createElement('div');
